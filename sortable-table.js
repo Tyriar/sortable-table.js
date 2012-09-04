@@ -15,7 +15,7 @@ $(document).ready(function () {
       if ($(th).hasClass(SORTED_CLASS)) {
         $(th).toggleClass(DESC_CLASS); // toggle so it sorts correct order
         var rows = mergeSortTable($(sortableTable).find('tbody'), i);
-        rearrangeTable(sortableTable, rows, th);
+        updateTable(sortableTable, rows, th);
         sorted = true;
         return false;
       }
@@ -37,26 +37,12 @@ $(document).ready(function () {
 function triggerSort(event) {
   if (event.type == 'click' || event.keyCode == 13) {
     var table = $(this).closest('table')
-    var rows = mergeSortTable($(table).find('tbody'), event.data.columnIndex);
-    rearrangeTable(table, rows, this);
+    var orderedRows = mergeSortTable($(table).find('tbody'), event.data.columnIndex);
+    updateTable(table, orderedRows, this);
   }   
 }
 
-function appendSlideDown(toSelector, html) {
-  $(html)
-    .hide()
-    .appendTo($(toSelector))
-    .slideDown('fast');
-}
-
-function prependSlideDown(toSelector, html) {
-  $(html)
-    .hide()
-    .prependTo($(toSelector))
-    .slideDown('fast');
-}
-
-function rearrangeTable(table, rows, sortTh) {
+function updateTable(table, rows, sortTh) {
   var sortDesc = ($(sortTh).hasClass(SORTED_CLASS) && !$(sortTh).hasClass(DESC_CLASS));
   $(rows).each(function (i, row) {
     $(row).remove();
@@ -89,28 +75,21 @@ function mergeSortTable(rows, col) { // column is 0-based
       right[i - middle] = row;
   });
 
-  left = mergeSortTable(left, col);
-  right = mergeSortTable(right, col);
-  return merge(left, right, col);
+  return merge(mergeSortTable(left, col), mergeSortTable(right, col), col);
 }
 
 function merge(left, right, col) {
   var results = [];
   while (left.length > 0 || right.length > 0) {
     if (left.length > 0 && right.length > 0) {
-      if (rowSortValue(left[0], col) < rowSortValue(right[0], col)) {
-        results[results.length] = left[0];
-        left.shift();
-      } else {
-        results[results.length] = right[0];
-        right.shift();
-      }
+      if (rowSortValue(left[0], col) < rowSortValue(right[0], col))
+        results.push(left.shift());
+      else
+        results.push(right.shift());
     } else if (left.length > 0) {
-      results[results.length] = left[0];
-      left.shift();
+      results.push(left.shift());
     } else if (right.length > 0) {
-      results[results.length] = right[0];
-      right.shift();
+      results.push(right.shift());
     }
   }
   return results;
