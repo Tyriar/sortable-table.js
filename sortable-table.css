@@ -1,19 +1,38 @@
-﻿table.sortable th:hover {cursor:pointer;}
+﻿/*!
+ * sortable-table.js 0.1
+ * MIT licensed
+ *
+ * Created by Daniel Imms, http://danielimms.blogspot.com.au
+ */
+table.sortable {
+  border:1px solid #000;
+}
+
+table.sortable th {
+  padding-right:5px;
+}
+
+table.sortable th:hover {
+  cursor:pointer;
+}
+
 table.sortable th > span {
-    position:relative;
-    top:-16px;
-    left:5px;
-    width:0px;
-    height:0px;
-    border-left:5px solid transparent;
-    border-right:5px solid transparent;
-    border-bottom:5px solid transparent;
+  position:relative;
+  top:-16px;
+  left:5px;
+  width:0px;
+  height:0px;
+  border-left:5px solid transparent;
+  border-right:5px solid transparent;
+  border-bottom:5px solid transparent;
 }
+
 table.sortable th.sorted > span {
-    border-bottom:10px solid #000;
+  border-bottom:10px solid #000;
 }
+
 table.sortable th.sorted.desc > span {
-    top:16px;
-    border-bottom:0;
-    border-top:10px solid #000;
+  top:16px;
+  border-bottom:0;
+  border-top:10px solid #000;
 }

@@ -1,23 +1,29 @@
-﻿var sortClass = 'sorted';
-var descSortClass = 'desc';
+﻿/*!
+ * sortable-table.js 0.1
+ * MIT licensed
+ *
+ * Created by Daniel Imms, http://danielimms.blogspot.com.au
+ */
+var SORTED_CLASS = 'sorted';
+var DESC_CLASS = 'desc';
 
-$().ready(function () {
+$(document).ready(function () {
   $('table.sortable').each(function (i, sortableTable) {
     var sorted = false;
     var ths = $(sortableTable).find('thead  tr').children();
-    for (var i = 0; i < ths.length; i++) {
-      if ($(ths[i]).hasClass(sortClass)) {
-        $(ths[i]).toggleClass(descSortClass); // toggle so it sorts correct order
+    ths.each(function (j, th) {
+      if ($(th).hasClass(SORTED_CLASS)) {
+        $(th).toggleClass(DESC_CLASS); // toggle so it sorts correct order
         var rows = mergeSortTable($(sortableTable).find('tbody'), i);
-        rearrangeTable(sortableTable, rows, ths[i]);
+        rearrangeTable(sortableTable, rows, th);
         sorted = true;
-        break;
+        return false;
       }
-    }
+    });
 
-    $(sortableTable).find('th').each(function (j, th) {
+    ths.each(function (j, th) {
       if (!sorted && j == 0) { // Assume sorted by first column if class not present
-        $(th).addClass(sortClass);
+        $(th).addClass(SORTED_CLASS);
       }
       $(this).attr('tabindex', '0');
       $(this).attr('title', 'Sort by ' + $(this).html().toLowerCase() + ' column');
@@ -52,7 +58,7 @@ function prependSlideDown(toSelector, html) {
 }
 
 function rearrangeTable(table, rows, sortTh) {
-  var sortDesc = ($(sortTh).hasClass(sortClass) && !$(sortTh).hasClass(descSortClass));
+  var sortDesc = ($(sortTh).hasClass(SORTED_CLASS) && !$(sortTh).hasClass(DESC_CLASS));
   $(rows).each(function (i, row) {
     $(row).remove();
     if (sortDesc) { // desc
@@ -61,13 +67,13 @@ function rearrangeTable(table, rows, sortTh) {
       $(row).appendTo(table);
     }
   });
-  if ($(sortTh).hasClass(sortClass)) {
-    $(sortTh).toggleClass(descSortClass);
+  if ($(sortTh).hasClass(SORTED_CLASS)) {
+    $(sortTh).toggleClass(DESC_CLASS);
   } else {
     var ths = $(table).find('th');
-    $(ths).removeClass(sortClass);
-    $(ths).removeClass(descSortClass);
-    $(sortTh).addClass(sortClass);
+    $(ths).removeClass(SORTED_CLASS);
+    $(ths).removeClass(DESC_CLASS);
+    $(sortTh).addClass(SORTED_CLASS);
   }
 }
 
