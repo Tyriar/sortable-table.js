@@ -22,9 +22,8 @@ $(document).ready(function () {
     });
 
     ths.each(function (j, th) {
-      if (!sorted && j == 0) { // Assume sorted by first column if class not present
+      if (!sorted && j == 0) // Assume sorted by first column if class not present
         $(th).addClass(SORTED_CLASS);
-      }
       $(this).attr('tabindex', '0');
       $(this).attr('title', 'Sort by ' + $(this).html().toLowerCase() + ' column');
       $('<span>').appendTo(th); // CSS sort arrow after header
@@ -61,11 +60,10 @@ function rearrangeTable(table, rows, sortTh) {
   var sortDesc = ($(sortTh).hasClass(SORTED_CLASS) && !$(sortTh).hasClass(DESC_CLASS));
   $(rows).each(function (i, row) {
     $(row).remove();
-    if (sortDesc) { // desc
+    if (sortDesc) // desc
       $(row).prependTo(table);
-    } else { // asc
+    else // asc
       $(row).appendTo(table);
-    }
   });
   if ($(sortTh).hasClass(SORTED_CLASS)) {
     $(sortTh).toggleClass(DESC_CLASS);
@@ -78,19 +76,17 @@ function rearrangeTable(table, rows, sortTh) {
 }
 
 function mergeSortTable(rows, col) { // column is 0-based
-  if (rows.length <= 1) {
+  if (rows.length <= 1)
     return rows;
-  }
 
   var left = [];
   var right = [];
   var middle = Math.floor(rows.length / 2);
   $(rows).each(function (i, row) {
-    if (i < middle) {
+    if (i < middle)
       left[i] = row;
-    } else {
+    else
       right[i - middle] = row;
-    }
   });
 
   left = mergeSortTable(left, col);
