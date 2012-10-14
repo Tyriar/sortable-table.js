@@ -1,9 +1,10 @@
-﻿/*!
- * sortable-table.js 0.2
- * MIT licensed
- *
- * Created by Daniel Imms, http://danielimms.blogspot.com.au
- */
+﻿-﻿/* 
+  * sortable-table.js
+- * MIT licensed
+- *
+- * Created by Daniel Imms, http://www.growingwiththeweb.com
+- */
+
 (function() {
   var SORTED_CLASS = 'sorted';
   var DESC_CLASS = 'desc';
