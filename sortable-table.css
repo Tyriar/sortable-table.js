@@ -1,11 +1,4 @@
-﻿-﻿/* 
-  * sortable-table.js
-- * MIT licensed
-- *
-- * Created by Daniel Imms, http://www.growingwiththeweb.com
-- */
-
-table.sortable th {
+﻿table.sortable th {
   padding-right:5px;
 }
 
