@@ -84,7 +84,7 @@
     var results = [];
     while (left.length > 0 || right.length > 0) {
       if (left.length > 0 && right.length > 0) {
-        if (rowSortValue(left[0], col) < rowSortValue(right[0], col))
+        if (rowCompare(left[0], col) < rowCompare(right[0], col))
           results.push(left.shift());
         else
           results.push(right.shift());
@@ -97,7 +97,7 @@
     return results;
   }
 
-  function rowSortValue(row, column) {
+  function rowCompare(row, column) {
     return $($(row).find('td')[column]).html().toLowerCase();
   }
 })();
