@@ -84,7 +84,7 @@
     var results = [];
     while (left.length > 0 || right.length > 0) {
       if (left.length > 0 && right.length > 0) {
-        if (rowCompare(left[0], col) < rowCompare(right[0], col))
+        if (rowCompare(left[0], col) <= rowCompare(right[0], col))
           results.push(left.shift());
         else
           results.push(right.shift());
