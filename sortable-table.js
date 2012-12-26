@@ -61,6 +61,7 @@
       $(ths).removeClass(DESC_CLASS);
       $(sortTh).addClass(SORTED_CLASS);
     }
+    $(table).find('thead').prependTo(table);
   }
 
   function mergeSortTable(rows, col) { // column is 0-based
