@@ -6,7 +6,7 @@ table.sortable th:hover {
   cursor:pointer;
 }
 
-table.sortable th > span {
+table.sortable th span {
   position:relative;
   top:-16px;
   left:5px;
@@ -17,11 +17,11 @@ table.sortable th > span {
   border-bottom:5px solid transparent;
 }
 
-table.sortable th.sorted > span {
+table.sortable th.sorted span {
   border-bottom:10px solid #000;
 }
 
-table.sortable th.sorted.desc > span {
+table.sortable th.sorted.desc span {
   top:16px;
   border-bottom:0;
   border-top:10px solid #000;
