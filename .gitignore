@@ -1,2 +1,6 @@
+# node.js
 node_modules
+
+# jasmine
 .grunt
+_SpecRunner.html
