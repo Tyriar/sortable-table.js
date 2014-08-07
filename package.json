@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "description": "Enables sorting tables by columns.",
   "main": "sortable-table.js",
+  "scripts": {
+    "test": "grunt test"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Tyriar/sortable-table.js.git"
