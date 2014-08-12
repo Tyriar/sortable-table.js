@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+  <script src="sortable-table.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="sortable-table.css" />
+  <title>sortable-table.js</title>
+  <style>
+    table.sortable th {
+      padding-right:5px;
+    }
+
+    table.sortable th:hover {
+      cursor:pointer;
+    }
+
+    table.sortable th span {
+      position:relative;
+      top:-16px;
+      left:5px;
+      width:0px;
+      height:0px;
+      border-left:5px solid transparent;
+      border-right:5px solid transparent;
+      border-bottom:5px solid transparent;
+    }
+
+    table.sortable th.sorted span {
+      border-bottom:10px solid #000;
+    }
+
+    table.sortable th.sorted.desc span {
+      top:16px;
+      border-bottom:0;
+      border-top:10px solid #000;
+    }
+  </style>
+</head>
+<body> 
+  <h1>Demonstration of sortable-table.js</h1> 
+  <table class="sortable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Job</th>
+        <th>Age</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Art Vandelay</td>
+        <td>Architect</td>
+        <td>33</td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
+        <td>H.E. Pennypacker</td>
+        <td>Wealthy industrialist, and philanthropist</td>
+        <td>35</td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
+        <td>Kel Varnsen</td>
+        <td>Importer/exporter of fine latex goods</td>
+        <td>30</td>
+      </tr>
+    </tbody>
+  </table>
+  <br />
+  <br />
+  <table class="sortable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th class="sorted desc">Job</th>
+        <th>Age</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Art Vandelay</td>
+        <td>Architect</td>
+        <td>33</td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
+        <td>H.E. Pennypacker</td>
+        <td>Wealthy industrialist, and philanthropist</td>
+        <td>35</td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
+        <td>Kel Varnsen</td>
+        <td>Importer/exporter of fine latex goods</td>
+        <td>30</td>
+      </tr>
+    </tbody>
+  </table>
+  <br />
+  <br />
+  <table class="sortable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Job</th>
+        <th class="sorted">Age</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Art Vandelay</td>
+        <td>Architect</td>
+        <td>33</td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
+        <td>H.E. Pennypacker</td>
+        <td>Wealthy industrialist, and philanthropist</td>
+        <td>35</td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
+        <td>Kel Varnsen</td>
+        <td>Importer/exporter of fine latex goods</td>
+        <td>30</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>
