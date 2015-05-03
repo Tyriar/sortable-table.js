@@ -6,13 +6,17 @@ A JavaScript library that enables sorting of a `<table>` by clicking their heade
 
 ## Usage
 
-    <table class="sortable">
-        ...
-    </table>
+```html
+<table class="sortable">
+    ...
+</table>
+```
 
 ## Styling
 
 To custom style the sorting arrows (asc/desc) target these selectors:
 
-    table.sortable th.sorted span {}
-    table.sortable th.sorted.desc span {}
+```css
+table.sortable th.sorted span {}
+table.sortable th.sorted.desc span {}
+```
