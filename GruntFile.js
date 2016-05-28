@@ -1,5 +1,4 @@
 module.exports = function(grunt) {
-
   grunt.config.init({
     pkg: grunt.file.readJSON('package.json')
   });
@@ -14,16 +13,6 @@ module.exports = function(grunt) {
     dist: {
       files: {
         'dist/sortable-table.js': 'sortable-table.js'
-      }
-    }
-  });
-
-  grunt.loadNpmTasks('grunt-contrib-jasmine');
-  grunt.config('jasmine', {
-    test: {
-      src: 'dist/sortable-table.js',
-      options: {
-        specs: 'test/*-spec.js'
       }
     }
   });
@@ -46,10 +35,6 @@ module.exports = function(grunt) {
     'clean:dist',
     'copy:dist',
     'uglify:dist'
-  ]);
-
-  grunt.registerTask('test', [
-    'jasmine:test',
   ]);
 
   grunt.registerTask('default', [
